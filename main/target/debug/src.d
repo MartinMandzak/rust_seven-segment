@@ -1,0 +1,1 @@
+C:\Users\mandz\segmentdisplay-but-in-rust\main\target\debug\src.exe: C:\Users\mandz\segmentdisplay-but-in-rust\main\src\decoder.rs C:\Users\mandz\segmentdisplay-but-in-rust\main\src\display.rs C:\Users\mandz\segmentdisplay-but-in-rust\main\src\main.rs
