@@ -1,20 +1,15 @@
 mod display;
 mod decoder;
 
-use display::Display;
-use display::SevenSegmented;
+use std::io;
 use decoder::PrintingDecoder;
 
 fn main() {
-    let mut x = SevenSegmented::new();
+    println!("Please enter your number: ");
+    let mut input = String::new();
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let mut x = PrintingDecoder::new(&input);
 
-    x.set_bit("8");
-
-    println!("saved:");
-    println!(" {:07b}", x.get_bit());
-
-    let mut dec = PrintingDecoder::new("123456e");
-
-    println!("{:?}", dec.printout());
+    x.printout();
 
 }

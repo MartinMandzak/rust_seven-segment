@@ -24,6 +24,7 @@ pub(crate) struct SevenSegmented {
     stored_bit: u8,
 }
 
+#[allow(dead_code)]
 impl SevenSegmented{
     pub fn new() -> SevenSegmented {
         SevenSegmented {

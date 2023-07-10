@@ -9,7 +9,7 @@ pub(crate) struct PrintingDecoder{
     //input from main.rs split into individual numbers to be displayed
     storage: Vec<String>,
 }
-
+#[allow(dead_code)]
 impl PrintingDecoder{
     pub fn new(string: &str) -> PrintingDecoder {
         PrintingDecoder {
@@ -55,10 +55,18 @@ impl PrintingDecoder{
         self.storage = temp_storage;
     }
 
-    pub fn combine() -> &'static str{
-        return "heya";
+    pub fn combine(&mut self)->String{
+       let mut result = String::new();
+        for skipper in 0..3{
+            for element in self.storage.iter().skip(skipper).step_by(3){
+                result.push_str(element);
+            }
+            result.push_str("\n");
+        }
+        return result;
     }
-    pub fn printout(&mut self) -> &str{
-        return "heya";
+    pub fn printout(&mut self){
+        self.stringify_and_add();
+        print!("{}", self.combine());
     }
 }
