@@ -2,7 +2,6 @@
 //decoder will use displays not the other way around
 //this is a decoder for terminal prinouts, not practical use
 
-use crate::display::SevenSegmented;
 
 pub(crate) struct PrintingDecoder {
     //input from main.rs split into individual numbers to be displayed
@@ -13,71 +12,6 @@ impl PrintingDecoder {
     pub fn new(string: &str) -> PrintingDecoder {
         PrintingDecoder {
             storage: string.chars().map(|x| x.to_string()).collect(), // |x| is a lambda function
-        }
-    }
-    //dont forget about the static shit, you dont know enough about it
-    pub fn stringify_and_add_display(&mut self, display: SevenSegmented) {
-        match display.get_bit() {
-            0b1111110 => self.storage.extend(vec![
-                " _ ".to_string(),
-                "| |".to_string(),
-                "|_|".to_string(),
-            ]),
-            0b0110000 => self.storage.extend(vec![
-                "   ".to_string(),
-                "  |".to_string(),
-                "  |".to_string(),
-            ]),
-            0b1101101 => self.storage.extend(vec![
-                " _ ".to_string(),
-                " _|".to_string(),
-                "|_ ".to_string(),
-            ]),
-            0b1111001 => self.storage.extend(vec![
-                " _ ".to_string(),
-                " _|".to_string(),
-                " _|".to_string(),
-            ]),
-            0b0110011 => self.storage.extend(vec![
-                "   ".to_string(),
-                "|_|".to_string(),
-                "  |".to_string(),
-            ]),
-            0b1011011 => self.storage.extend(vec![
-                " _ ".to_string(),
-                "|_ ".to_string(),
-                " _|".to_string(),
-            ]),
-            0b1011111 => self.storage.extend(vec![
-                "   ".to_string(),
-                "|_ ".to_string(),
-                "|_|".to_string(),
-            ]),
-            0b1110000 => self.storage.extend(vec![
-                " _ ".to_string(),
-                "  |".to_string(),
-                "  |".to_string(),
-            ]),
-            0b1111111 => self.storage.extend(vec![
-                " _ ".to_string(),
-                "|_|".to_string(),
-                "|_|".to_string(),
-            ]),
-            0b1110011 => self.storage.extend(vec![
-                " _ ".to_string(),
-                "|_|".to_string(),
-                "  |".to_string(),
-            ]),
-            0b0000000 => self.storage.extend(vec![
-                "   ".to_string(),
-                "   ".to_string(),
-                "   ".to_string(),
-            ]),
-            _ => self.storage.extend(vec![
-                " _ ".to_string(),
-                "|_ ".to_string(),
-                "|_ ".to_string(),
-            ]),
         }
     }
 

@@ -1,5 +1,4 @@
 mod decoder;
-mod display;
 
 use decoder::PrintingDecoder;
 use std::io;
