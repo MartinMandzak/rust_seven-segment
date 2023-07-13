@@ -2,12 +2,10 @@
 //decoder will use displays not the other way around
 //this is a decoder for terminal prinouts, not practical use
 
-
 pub(crate) struct PrintingDecoder {
     //input from main.rs split into individual numbers to be displayed
     storage: Vec<String>,
 }
-#[allow(dead_code)]
 impl PrintingDecoder {
     pub fn new(string: &str) -> PrintingDecoder {
         PrintingDecoder {
